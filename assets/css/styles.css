@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+  font: 100%;
+}
+
+body{
+  font-size: 1em;
+  color: grey;
+  padding: 0;
+  margin: 0;
+  background: white;
+  text-align: center;
+  font-family: 'helvetica', sans-serif;
+}
+
+.inputSearch{
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
+.userProfile{
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
+.sharedLinks{
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
+.savedLinks{
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
