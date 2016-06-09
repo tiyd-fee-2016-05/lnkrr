@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Snapchat",
+    "url": "www.snapchat.com",
+    "description": "snaps",
+    "timestamp": "YYYY-MM-DD HH:MM:SS"
+  }
+  ,
+  {
+    "title": "Bing",
+    "url": "www.bing.com",
+    "description": "better than googs",
+    "timestamp": "YYYY-MM-DD HH:MM:SS"
+    }
+]

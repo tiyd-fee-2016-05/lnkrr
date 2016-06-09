@@ -1,9 +1,9 @@
 {
-"avatar": "value",
-"first_name": "value",
-"last_name": "value",
-"username": "value",
-"location": "value",
-"joined_date": "value",
-"saved_links": "value",
+  "avatar": "/assets/images/old_darth.png",
+  "first_name": "darth",
+  "last_name": "vader",
+  "username": "skygrandaddy",
+  "location": "deathstar",
+  "joined_date": "1999-06-07",
+  "saved_links": "2"
 }
