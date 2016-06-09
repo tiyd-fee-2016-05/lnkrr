@@ -1,11 +1,12 @@
-$(document).ready(function() {
+$(function(){
+   'use strict';
 
-$.ajax({
-  dataType: 'json',
-  url: '/apis/lnkrr/users/skywalker/skywalker.json',
-  method: 'GET',
-}).done(function (userInfo){
-  $('.userProfile').append('<li class="username">' + json.name + '</li>');
-console.log('hey');
-});
+  $('.userProfile').click(function () {
+console.log('1');
+   $.getJSON('apis/lnkrr/users/skywalker/skywalker.json', function(json) {
+console.log('2');
+     $(".userProfile").append(json.username);
+
+   });
+  });
 });
