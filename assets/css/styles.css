@@ -16,6 +16,11 @@ body{
   font-family: 'helvetica', sans-serif;
 }
 
+
+img{
+  max-width: 10em;
+}
+
 .inputSearch{
   display: inline-block;
   width: 250px;

@@ -3,6 +3,10 @@ $(function(){
   var searchUser;
   $('.searchbar').submit(function (e) {
     e.preventDefault();
+
+//on submit, clears the current page and fills it with an empty string
+    $('.erase').html('');
+
   searchUser = $('input[name="searchUser"]').val();
 
    $.getJSON('apis/lnkrr/users/' + searchUser + '/' + searchUser + '.json', function(json) {
@@ -12,7 +16,7 @@ $(function(){
                               '<li id="location">' + json.location + '</li>',
                               '<li id="joined_date">' + json.joined_date + '</li>',
                               '<li id="saved_links">' + json.saved_links + '</li>'
-                              )
+                            );
 
    });
   });
@@ -20,7 +24,6 @@ $(function(){
   $('.searchbar').submit(function () {
     console.log('hey');
     $.getJSON('apis/lnkrr/users/' + searchUser + '/links.json', function(json) {
-    // $.getJSON('apis/lnkrr/users/skywalker/links.json', function(json) {
       for (var l = 0; l < json.length; l++){
         $(".savedLinks").append('<li class="linkList">' + json[l].title + '</li>');
       }
