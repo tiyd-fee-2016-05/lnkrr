@@ -1,6 +1,11 @@
 $(function(){
    'use strict';
   var searchUser;
+  // modal functions
+  $(".post").click(function(e){
+    $(".saveModal").addClass("showing");
+  });
+
   $('.searchbar').submit(function (e) {
     e.preventDefault();
 
@@ -53,6 +58,26 @@ $(function(){
       $(".savedLinks").append('<li class="linkList">' + json[l].title + '</li>');
     }
   });
+
+$('.submit').click(function(e) {
+  e.preventDefault();
+  console.log('forceChoke');
+  var link = {
+      "title": $(".inputTitle").val(),
+      "url": $(".inputUrl").val(),
+      "description": $(".inputDescription").val()
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'apis/lnkrr/users/vader/links.json',
+    data: link,
+    success: function(newLink){
+      $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>');
+    }
+    //error: console.log("you done messed up");
+  });
+
+});
 
 });
 });
