@@ -8,23 +8,25 @@ html{
 
 body{
   font-size: 1em;
-  color: grey;
+  color: black;
   padding: 0;
   margin: 0;
-  background: white;
+  background: #f7f7f7;
   text-align: center;
-  font-family: 'helvetica', sans-serif;
+  font-family: 'Comfortaa', cursive;
 }
-
 
 img{
   max-width: 10em;
 }
-body {
-  font-family: Comfortaa, sans-serif;
-  background-color: #f7f7f7;
-  /*width: 100%;*/
+
+/***********MAIN WRAPPER***********/
+.mainWrapper{
+  display: flex;
+  margin: 1em;
 }
+
+/***********TOP NAV BAR***********/
 
 .navBar {
   /*position: fixed;*/
@@ -74,21 +76,71 @@ body {
   /*margin-bottom: 8px;*/
 }
 
-.userProfile{
+/***********LEFT SIDE BAR***********/
+
+/*user profile*/
+.profile_wrapper{
+  margin: .25em 0;
   display: inline-block;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 500px;
+  background-color: #679898;
+  border-radius: 5px;
+}
+.profile_wrapper h2{
+  font-size: 1.5em;
+  color: white;
+}
+
+
+.userProfile{
+  margin: .25em 0;
+  text-align: left;
+}
+
+#avatar{
+  text-align: center;
+}
+
+#username{
+  padding: .25em 0;
+  font-size: 2em;
+}
+
+#fullname{
+  padding: .25em 0;
+  font-size: 1.25em;
+  border-bottom: 5px solid #f7f7f7;
+}
+
+#location{
+
+}
+
+
+
+.right_wrapper{
+  display: inline-block;
+  margin: 0;
   border: 1px solid black;
 }
+.right_wrapper h2{
+  font-size: 1.25em
+}
+
 .sharedLinks{
+  margin: .25em 0;
   display: inline-block;
-  width: 250px;
+  width: 500px;
   height: 250px;
   border: 1px solid black;
+  border-radius: 5px;
 }
 .savedLinks{
+  margin: .25em 0;
   display: inline-block;
-  width: 250px;
+  width: 500px;
   height: 250px;
   border: 1px solid black;
+  border-radius: 5px;
 }
