@@ -41,6 +41,13 @@ img{
 .saveModal.showing {
   display: block;
 }
+/*.userShare {
+  display: none;
+  justify-content: center;
+}*/
+.userShare.showing{
+  display: block;
+}
 .inputSearch{
   position: absolute;
   text-align: left;
