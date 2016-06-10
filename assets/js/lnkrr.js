@@ -2,9 +2,19 @@ $(function(){
    'use strict';
   var searchUser;
   // modal functions
+
+
+  $('.shareButton').click(function(e) {
+    e.preventDefault();
+    console.log('forcePuke');
+    $(".userShare").css("opacity", "1");
+});
+
   $('.submit').click(function(e) {
     e.preventDefault();
     console.log('forceChoke');
+    // $(".userShare").addClass("showing");
+
     var link = {
         "title": $(".inputTitle").val(),
         "url": $(".inputUrl").val(),
@@ -14,14 +24,18 @@ $(function(){
       type: 'POST',
       url: 'http://lnkrr.herokuapp.com/user/links',
       data: link,
-      headers: {'Authorization': 'Basic' + btoa('USERNAME' + ":" + 'PASSWORD')},
+      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "poop123")},
       success: function(newLink){
-        $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>');
+        $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
+      //error: console.log("you done messed up");
     });
+
   });
   $(".post").click(function(e){
     $(".saveModal").addClass("showing");
+    $(".userShare").css("opacity", "0");
+  });
 
 
   $('.searchbar').submit(function (e) {
@@ -42,7 +56,7 @@ $(function(){
     }
   }).done(function (json) {
     console.log(json);
-    $(".userProfile").append('<li id="avatar">' + '<img src="' + json.avatar + '" />' + '</li>',
+    $(".userProfile").append('<li id="avatar">' + '<img src="' + json.avatar + '" />'+ '</li>',
                               '<li id="username">' + json.username + '</li>',
                               '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                               '<li id="location">' + json.location + '</li>',
