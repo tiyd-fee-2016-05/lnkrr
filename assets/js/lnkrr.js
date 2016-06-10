@@ -2,9 +2,27 @@ $(function(){
    'use strict';
   var searchUser;
   // modal functions
+  $('.submit').click(function(e) {
+    e.preventDefault();
+    console.log('forceChoke');
+    var link = {
+        "title": $(".inputTitle").val(),
+        "url": $(".inputUrl").val(),
+        "description": $(".inputDescription").val()
+    };
+    $.ajax({
+      type: 'POST',
+      url: 'http://lnkrr.herokuapp.com/user/links',
+      data: link,
+      headers: {'Authorization': 'Basic' + btoa('USERNAME' + ":" + 'PASSWORD')},
+      success: function(newLink){
+        $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>');
+      }
+    });
+  });
   $(".post").click(function(e){
     $(".saveModal").addClass("showing");
-  });
+
 
   $('.searchbar').submit(function (e) {
     e.preventDefault();
@@ -34,16 +52,6 @@ $(function(){
 
   });
 
-  // $('.searchbar').submit(function () {
-  //   console.log('hey');
-  //   $.getJSON('apis/lnkrr/users/' + searchUser + '/links.json', function(json) {
-  //     for (var l = 0; l < json.length; l++){
-  //       $(".savedLinks").append('<li class="linkList">' + json[l].title + '</li>');
-  //     }
-  //   });
-  // });
-
-
   $.ajax({
     dataType: 'json',
     url: 'http://lnkrr.herokuapp.com/' + searchUser + '/links',
@@ -55,26 +63,9 @@ $(function(){
   }).done(function(json) {
     console.log(json);
     for (var l = 0; l < json.length; l++){
-      $(".savedLinks").append('<li class="linkList">' + json[l].title + '</li>');
+      $(".savedLinks").append('<li class="linkList">' + json[l].title + '</li>',
+                              '<button class="' + json[l].id + '">' + "X" + '</button>' );
     }
-  });
-
-$('.submit').click(function(e) {
-  e.preventDefault();
-  console.log('forceChoke');
-  var link = {
-      "title": $(".inputTitle").val(),
-      "url": $(".inputUrl").val(),
-      "description": $(".inputDescription").val()
-  };
-  $.ajax({
-    type: 'POST',
-    url: 'apis/lnkrr/users/vader/links.json',
-    data: link,
-    success: function(newLink){
-      $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>');
-    }
-    //error: console.log("you done messed up");
   });
 
 });
