@@ -4,20 +4,39 @@
     <meta charset="utf-8">
     <link rel= "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel = "stylesheet" href = "assets/css/styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
     <title>lnkrr</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   </head>
   <body>
 <!-- TOP NAV BAR -->
+  <div class="navBar">
   <!-- input for search -->
     <div class="inputSearch">
       <form class="searchbar">
         <input class="searchbar" type="text" name="searchUser" placeholder="Search lnkrr"></input></form>
+      </div>
+    <h3 class="lnkrr">lnkrr.</h3>
+    <button class="post">
+      <i class="fa fa-link" aria-hidden="true"></i>  lnkrr.
+</button>
+    <div class="saveModal">
+      <form class="inputTitle">
+        <input class="newLinkTitle" type="text" name="linkTitle" placeholder="Title"></input></form>
+      <form class="inputUrl">
+        <input class="newLinkUrl" type="text" name="linkUrl" placeholder="URL"></input></form>
+        <form class="inputDecription">
+          <input class="newLinkDescription" type="text" name="linkDescription" placeholder="Description"></input></form>
+        <button class="submit">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </button>
     </div>
-
-
+  </div>
 <!-- LEFT SIDE BAR -->
+<div class="mainWrapper">
   <!-- user profile -->
+
     <div class="userProfile erase">
     </div>
 
@@ -36,7 +55,7 @@
         url
         description
         user -->
-
+      </div>
     <script type="text/javascript" src="assets/js/lnkrr.js"></script>
   </body>
 </html>
