@@ -1,6 +1,11 @@
 $(function(){
    'use strict';
   var searchUser;
+  // modal functions
+  $(".post").click(function(e){
+    $(".saveModal").addClass("showing");
+  });
+
   $('.searchbar').submit(function (e) {
     e.preventDefault();
 
@@ -9,7 +14,11 @@ $(function(){
 
   searchUser = $('input[name="searchUser"]').val();
 
-   $.getJSON('apis/lnkrr/users/' + searchUser + '/' + searchUser + '.json', function(json) {
+   $.getJSON('http://lnkrr.herokuapp.com/skydaddy', function(json) {
+
+
+
+
      $(".userProfile").append('<li id="avatar">' + '<img src="' + json.avatar + '" />' + '</li>',
                               '<li id="username">' + json.username + '</li>',
                               '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
@@ -29,5 +38,25 @@ $(function(){
       }
     });
   });
+
+$('.submit').click(function(e) {
+  e.preventDefault();
+  console.log('forceChoke');
+  var link = {
+      "title": $(".inputTitle").val(),
+      "url": $(".inputUrl").val(),
+      "description": $(".inputDescription").val()
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'apis/lnkrr/users/vader/links.json',
+    data: link,
+    success: function(newLink){
+      $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>');
+    }
+    //error: console.log("you done messed up");
+  });
+
+});
 
 });

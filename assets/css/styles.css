@@ -20,13 +20,60 @@ body{
 img{
   max-width: 10em;
 }
-
-.inputSearch{
-  display: inline-block;
-  width: 250px;
-  height: 250px;
-  border: 1px solid black;
+body {
+  font-family: Comfortaa, sans-serif;
+  background-color: #f7f7f7;
+  /*width: 100%;*/
 }
+
+.navBar {
+  /*position: fixed;*/
+  display: inline-block;
+  border: 1px solid black;
+  width: 100%;
+
+}
+.saveModal {
+  display: none;
+}
+.saveModal.showing {
+  display: block;
+}
+.inputSearch{
+  position: absolute;
+  text-align: left;
+  display: inline-block;
+  margin-left: -65px;
+  margin-top: 15px;
+  /*border: 1px solid black;*/
+}
+.searchbar {
+  /*padding-bottom: 20px;*/
+  border-radius: 5px;
+}
+.lnkrr{
+  display: inline-block;
+  width: 35%;
+  font-size: 40px;
+  margin-left: 255px;
+  font-weight: 700;
+  color: #679898;
+
+  /*margin-left: 100px;*/
+}
+.post {
+  /*position: absolute;*/
+  color: #679898;
+  display: inline-block;
+  font-size: 18px;
+  /*margin-top: 15px;*/
+  margin-left: 150px;
+  width: 8%;
+  border-radius: 5px;
+  background-color: #fafafa;
+  /*margin-bottom: 8px;*/
+}
+
 .userProfile{
   display: inline-block;
   width: 250px;
