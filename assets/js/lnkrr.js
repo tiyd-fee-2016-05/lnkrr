@@ -39,23 +39,26 @@ $(function(){
     var link = {
         "title": $('input[name="linkTitle"]').val(),
         "url": $('input[name="linkUrl"]').val(),
-        "description": $('input[name="linkDescription"]').val(),
+        "description": $('input[name="linkDescription"]').val()
     };
+    var linkJson = JSON.stringify(link)
     console.log(link);
     $.ajax({
       type: 'POST',
-      url: "http://aeba6c86.ngrok.io/skydaddy/links",
-      //url: 'http://lnkrr.herokuapp.com/skydaddy/links',
-      data: link,
+      dataType: 'json',
+      //url: "http://66990ec5.ngrok.io/skydaddy/links",
+      url: 'http://lnkrr.herokuapp.com/skydaddy/links',
+      data: linkJson,
 
       headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
       success: function(newLink){
         $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
+
       //error: console.log("you done messed up");
     });
-
+    console.log(linkJson);
   });
   $(".post").click(function(e){
     $(".saveModal").addClass("showing");
