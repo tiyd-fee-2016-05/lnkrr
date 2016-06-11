@@ -100,7 +100,7 @@ img{
 
 /***********MAIN WRAPPER***********/
 .mainWrapper{
-  opacity: 0;
+  /*opacity: 0;*/
   display: flex;
   margin: 1em;
 }
@@ -108,7 +108,7 @@ img{
 /***********TOP NAV BAR***********/
 
 .navBar {
-  opacity: 0;
+  /*opacity: 0;*/
   margin: 1em 4em 0em 0em;
   display: block;
 }

@@ -47,7 +47,7 @@ $(function(){
     e.preventDefault();
 
 //on submit, clears the current page and fills it with an empty string
-    $('.erase').html('');
+    // $('.erase').html('');
 
   searchUser = $('input[name="searchUser"]').val();
 
