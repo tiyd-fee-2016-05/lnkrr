@@ -29,7 +29,7 @@ $(function(){
       type: 'POST',
       url: 'http://lnkrr.herokuapp.com/user/links',
       data: link,
-      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "lightsaber")},
+      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "pass")},
       success: function(newLink){
         $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
@@ -47,7 +47,7 @@ $(function(){
     e.preventDefault();
 
 //on submit, clears the current page and fills it with an empty string
-    $('.erase').html('');
+    // $('.erase').html('');
 
   searchUser = $('input[name="searchUser"]').val();
 
@@ -90,4 +90,3 @@ $(function(){
 });
 
 });
-// });
