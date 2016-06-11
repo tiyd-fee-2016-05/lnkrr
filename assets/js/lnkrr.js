@@ -47,7 +47,9 @@ $(function(){
       url: "http://aeba6c86.ngrok.io/skydaddy/links",
       //url: 'http://lnkrr.herokuapp.com/skydaddy/links',
       data: link,
+
       headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
+
       success: function(newLink){
         $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
@@ -68,7 +70,7 @@ $(function(){
     console.log(searchUser);
 
 //on submit, clears the current page and fills it with an empty string
-    $('.erase').html('');
+    // $('.erase').html('');
 
   // searchUser = $('input[name="searchUser"]').val();
 
@@ -118,4 +120,3 @@ $(function(){
 });
 
 });
-// });
