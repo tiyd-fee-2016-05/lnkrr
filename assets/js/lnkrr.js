@@ -1,13 +1,22 @@
 $(function(){
    'use strict';
   var searchUser;
-  // modal functions
-
+  searchUser = $('input[name="searchUser"]').val();
+  //login functions
   $(".info").click(function(e) {
     e.preventDefault();
     console.log("INFOOOO");
     $(".infoContent").toggle();
   });
+
+  $(".loginButton").click(function(e){
+    e.preventDefault();
+    $(".login").css("opacity", "0");
+    $(".navBar").css("opacity", "1");
+    $(".mainWrapper").css("opacity", "1");
+  });
+
+  // modal functions
 
   $('.shareButton').click(function(e) {
     e.preventDefault();
@@ -29,7 +38,7 @@ $(function(){
       type: 'POST',
       url: 'http://lnkrr.herokuapp.com/user/links',
       data: link,
-      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "lightsaber")},
+      headers: {"Authorization": "Basic" + btoa("searchUser" + ":" + "lightsaber")},
       success: function(newLink){
         $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
@@ -49,7 +58,7 @@ $(function(){
 //on submit, clears the current page and fills it with an empty string
     $('.erase').html('');
 
-  searchUser = $('input[name="searchUser"]').val();
+  // searchUser = $('input[name="searchUser"]').val();
 
   $.ajax({
   dataType: 'json',
