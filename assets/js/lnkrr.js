@@ -3,6 +3,11 @@ $(function(){
   var searchUser;
   // modal functions
 
+  $(".info").click(function(e) {
+    e.preventDefault();
+    console.log("INFOOOO");
+    $(".infoContent").toggle();
+  });
 
   $('.shareButton').click(function(e) {
     e.preventDefault();
@@ -24,7 +29,7 @@ $(function(){
       type: 'POST',
       url: 'http://lnkrr.herokuapp.com/user/links',
       data: link,
-      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "poop123")},
+      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "lightsaber")},
       success: function(newLink){
         $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
@@ -51,7 +56,7 @@ $(function(){
   url: 'http://lnkrr.herokuapp.com/' + searchUser,
   method: 'GET',
   beforeSend: function (xhr) {
-    var base64Credentials = btoa(searchUser + ":" + 'cool123');
+    var base64Credentials = btoa(searchUser + ":" + 'lightsaber');
     xhr.setRequestHeader('Authorization', 'Basic ' + base64Credentials);
     }
   }).done(function (json) {
@@ -71,7 +76,7 @@ $(function(){
     url: 'http://lnkrr.herokuapp.com/' + searchUser + '/links',
     method: 'GET',
     beforeSend: function (xhr) {
-      var base64Credentials = btoa(searchUser + ":" + 'cool123');
+      var base64Credentials = btoa(searchUser + ":" + 'lightsaber');
       xhr.setRequestHeader('Authorization', 'Basic ' + base64Credentials);
       }
   }).done(function(json) {
@@ -85,4 +90,4 @@ $(function(){
 });
 
 });
-});
+// });
