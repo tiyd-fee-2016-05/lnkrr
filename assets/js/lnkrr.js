@@ -1,13 +1,28 @@
 $(function(){
    'use strict';
   var searchUser;
-  // modal functions
-
+  searchUser = $('input[name="searchUser"]').val();
+  var userName
+  var password
+  //login functions
   $(".info").click(function(e) {
     e.preventDefault();
     console.log("INFOOOO");
     $(".infoContent").toggle();
   });
+
+  $(".loginButton").click(function(e){
+    e.preventDefault();
+    userName = $('input[name="usernameLogin"]').val();
+    password = $('input[name="password"]').val();
+    $(".login").css("display", "none");
+    $(".navBar").css("opacity", "1");
+    $(".mainWrapper").css("opacity", "1");
+    console.log(userName);
+    console.log(password);
+  });
+
+  // modal functions
 
   $('.shareButton').click(function(e) {
     e.preventDefault();
@@ -18,18 +33,23 @@ $(function(){
   $('.submit').click(function(e) {
     e.preventDefault();
     console.log('forceChoke');
+    console.log(searchUser);
     // $(".userShare").addClass("showing");
 
     var link = {
-        "title": $(".inputTitle").val(),
-        "url": $(".inputUrl").val(),
-        "description": $(".inputDescription").val()
+        "title": $('input[name="linkTitle"]').val(),
+        "url": $('input[name="linkUrl"]').val(),
+        "description": $('input[name="linkDescription"]').val(),
     };
+    console.log(link);
     $.ajax({
       type: 'POST',
-      url: 'http://lnkrr.herokuapp.com/user/links',
+      url: "http://aeba6c86.ngrok.io/skydaddy/links",
+      //url: 'http://lnkrr.herokuapp.com/skydaddy/links',
       data: link,
-      headers: {"Authorization": "Basic" + btoa("skydaddy" + ":" + "pass")},
+
+      headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
+
       success: function(newLink){
         $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
       }
@@ -45,22 +65,30 @@ $(function(){
 
   $('.searchbar').submit(function (e) {
     e.preventDefault();
+    searchUser = $('input[name="searchUser"]').val();
+    console.log(userName);
+    console.log(searchUser);
 
 //on submit, clears the current page and fills it with an empty string
     // $('.erase').html('');
 
-  searchUser = $('input[name="searchUser"]').val();
+  // searchUser = $('input[name="searchUser"]').val();
 
   $.ajax({
   dataType: 'json',
+  //url: "http://8b3734ab.ngrok.io/skydaddy",
   url: 'http://lnkrr.herokuapp.com/' + searchUser,
   method: 'GET',
   beforeSend: function (xhr) {
-    var base64Credentials = btoa(searchUser + ":" + 'lightsaber');
-    xhr.setRequestHeader('Authorization', 'Basic ' + base64Credentials);
+    var cred = ("skydaddy:pass");
+    //var base64Credentials = btoa("skydaddy" + ":" + "pass");
+    xhr.setRequestHeader("Authorization", "skydaddy:lightsaber");
+    console.log(cred);
+
     }
   }).done(function (json) {
     console.log(json);
+
     $(".userProfile").append('<li id="avatar">' + '<img src="' + json.avatar + '" />'+ '</li>',
                               '<li id="username">' + json.username + '</li>',
                               '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
@@ -76,9 +104,11 @@ $(function(){
     url: 'http://lnkrr.herokuapp.com/' + searchUser + '/links',
     method: 'GET',
     beforeSend: function (xhr) {
-      var base64Credentials = btoa(searchUser + ":" + 'lightsaber');
-      xhr.setRequestHeader('Authorization', 'Basic ' + base64Credentials);
-      }
+      var cred = ("skydaddy:pass");
+      //var base64Credentials = btoa("skydaddy" + ":" + "pass");
+      xhr.setRequestHeader("Authorization", "skydaddy:lightsaber");
+      console.log(cred);
+    }
   }).done(function(json) {
     console.log(json);
     for (var l = 0; l < json.length; l++){
