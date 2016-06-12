@@ -74,9 +74,13 @@ $(function(){
         }
       }).done(function(json) {
         console.log(json);
-        for (var l = 0; l < 5; l++){
-          $(".savedLinks").append('<li class="linkList">' + json[l].title +
-                                  '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+        for (var l = 0; l < json.length; l++){
+          $(".savedLinks").append('<li class="linkList">' +
+                                  '<h3>' + json[l].title + '</h3>' +
+                                  '<button class="xbutton" id="' +
+                                    json[l].id + '">' + "X" + '</button>' +
+                                  '<p>' + json[l].description + '</p>' +
+                                  '<span>' + json[l].url + '</span>' + '<li>');
         }
       });
       //end of request to pull user links
@@ -94,9 +98,13 @@ $(function(){
         }
       }).done(function(json) {
         console.log(json);
-        for (var l = 0; l < 5; l++){
-          $(".sharedLinks").append('<li class="linkList">' + json[l].title +
-                                  '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+        for (var l = 0; l < json.length; l++){
+          $(".sharedLinks").append('<li class="linkList">' +
+                                  '<h3>' + json[l].title + '</h3>' +
+                                  '<button class="xbutton" id="' +
+                                    json[l].id + '">' + "X" + '</button>' +
+                                  '<p>' + json[l].description + '</p>' +
+                                  '<span>' + json[l].url + '</span>' + '<li>');
         }
       });
       // end of request to pull shared links
@@ -159,7 +167,10 @@ $(function(){
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
         success: function(newLink){
-          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+          $(".savedLinks").append('<li class="linkList">' + '<h3>' + newLink.title + '</h3>' +
+                                  '<button class="delete"> x </button>' +
+                                  '<p>' + newLink.description + '</p>' +
+                                  '<span>' + newLink.url + '</span>' + '<li>');
         }
 
         //error: console.log("you done messed up");
@@ -238,8 +249,12 @@ $(function(){
   }).done(function(json) {
     console.log(json);
     for (var l = 0; l < 5; l++){
-      $(".savedLinks").append('<li class="linkList">' + json[l].title +
-                              '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+      $(".savedLinks").append('<li class="linkList">' +
+                              '<h3>' + json[l].title + '</h3>' +
+                              '<button class="xbutton" id="' +
+                                json[l].id + '">' + "X" + '</button>' +
+                              '<p>' + json[l].description + '</p>' +
+                              '<span>' + json[l].url + '</span>' + '<li>');
     }
   });
   //end of request to pull user links
@@ -257,9 +272,13 @@ $(function(){
     }
   }).done(function(json) {
     console.log(json);
-    for (var l = 0; l < 5; l++){
-      $(".sharedLinks").append('<li class="linkList">' + json[l].title +
-                              '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+    for (var l = 0; json.length; l++){
+      $(".sharedLinks").append('<li class="linkList">' +
+                              '<h3>' + json[l].title + '</h3>' +
+                              '<button class="xbutton" id="' +
+                                json[l].id + '">' + "X" + '</button>' +
+                              '<p>' + json[l].description + '</p>' +
+                              '<span>' + json[l].url + '</span>' + '<li>');
     }
   });
   // end of request to pull shared links
