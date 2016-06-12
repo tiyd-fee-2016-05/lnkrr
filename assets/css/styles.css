@@ -303,8 +303,13 @@ img{
   font-size: 1em;
   padding: 10px;
 }
-
-
+.userProfile i{
+  margin-left: 5px;
+  font-size: 2em;
+}
+.iconPad {
+  padding: 1em;
+}
 
 
 
@@ -320,19 +325,19 @@ img{
 }
 
 .sharedLinks{
+  position: relative;
   color: #679898;
   margin: .25em 0;
   display: inline-block;
   width: 100%;
-  height: 250px;
   /*border: 1px solid black;*/
   border-radius: 5px;
 }
 .savedLinks_wrapper{
+  position: relative;
   margin: .25em 0;
   display: inline-block;
   width: 100%;
-  height: 250px;
   /*border: 1px solid black;*/
   border-radius: 5px;
 }
@@ -369,14 +374,26 @@ img{
 }
 
 .xbutton{
-  background-color: grey;
-  color: white;
+  background-color: #679898;
+  color: #d0dfdf;
   font-weight: 700;
   border-radius: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
   text-decoration: none;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.xbutton:hover{
+  background-color: #d0dfdf;
+  color: #679898;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
 }
