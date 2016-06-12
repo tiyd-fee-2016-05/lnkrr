@@ -9,17 +9,18 @@ html{
 body{
   /*display: none;*/
   font-size: 1em;
-  color: black;
+  color: #1f1f1f;
   padding: 0;
   margin: 0;
   background: #f7f7f7;
   text-align: center;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 img{
   max-width: 10em;
 }
+
 /********Log In******/
 .login{
   display: block;
@@ -34,7 +35,8 @@ img{
 
 }
 .info{
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
+  position: absolute;
+  margin: 7em 0em 0em 1.5em;
   border: 2px solid #d0dfdf;
   vertical-align: super;
   background-color: #679898;
@@ -49,48 +51,44 @@ img{
 }
 .infoContent {
   display: none;
-  margin-bottom: 10px;
+  margin: 1em auto;
 }
 .infoBody{
-  margin-left: auto;
-  margin-right: auto;
+  margin: .5em auto;
   position: relative;
-  width: 25%;
+  width: 30%;
   text-align: left;
-  color: #679898;
+  color: #1f1f1f;
   opacity: .5;
-  /*color: red;*/
-  font-size: 16px;
-  line-height: .75;
+  font-size: 1em;
+  line-height: 1;
 }
 .bigInfo{
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  position: relative;
-  /*width: 25%;*/
-  text-align: left;
-  color: #679898;
-  opacity: .85;
-  /*color: red;*/
-  font-size: 20px;
-  line-height: .75;
-
+  margin: 2em;
+  vertical-align: -0.5em;
+  font-size: 0.9em;
+  font-weight: 700;
 }
+.tinyInfo{
+  opacity: .7;
+  font-size: 0.8em;
+}
+.bigInfo2{
+  font-size: .9em;
+}
+
 .usernameLogin{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
 .password{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
 
 .loginButton {
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   background-color: #679898;
   display: inline-block;
@@ -101,8 +99,8 @@ img{
 
 /***********MAIN WRAPPER***********/
 .mainWrapper{
+  margin-top: 2.5em;
   opacity: 0;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -110,16 +108,20 @@ img{
 
 .navBar {
   opacity: 0;
-  margin: 1em 4em 0em 0em;
+  margin: 1em 3em 0em 0em;
   display: block;
 }
 .saveModal {
   display: none;
+  margin-left: 3em;
+  margin-top: 0.5em;
 }
 .saveModal.showing  input{
   margin: 0.25em 0;
 }
 .saveModal.showing {
+  margin-left: 3em;
+  margin-top: 0.5em;
   display: block;
 }
 /*.userShare {
@@ -135,7 +137,6 @@ img{
 }
 .searchbar input{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
@@ -150,7 +151,6 @@ img{
 
 .post {
   padding: 0.05em 0.5em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   vertical-align: super;
   background-color: #679898;
@@ -162,25 +162,21 @@ img{
 
 .newLinkTitle{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
 .newLinkUrl{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
 .newLinkDescription{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
 .inputShare{
   padding: 0.25em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   border-radius: 5px;
 }
@@ -188,7 +184,6 @@ img{
 .shareButton {
   margin: .25em;
   padding: 0.5em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   vertical-align: super;
   background-color: #679898;
@@ -200,7 +195,6 @@ img{
 .submit {
   margin: .25em;
   padding: 0.5em;
-  box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   vertical-align: super;
   background-color: #679898;
@@ -214,15 +208,15 @@ img{
 
 /*user profile*/
 .profile_wrapper{
-  margin: .25em 0;
   display: inline-block;
-  width: 300px;
+  width: 250px;
   height: 500px;
   background-color: #d0dfdf;
   border-radius: 5px;
   vertical-align: top;
 }
 .profile_wrapper h2{
+  margin: 0.5em auto;
   font-size: 1.5em;
   color: white;
   vertical-align: top;
@@ -257,14 +251,16 @@ img{
 
 .right_wrapper{
   display: inline-block;
-  margin: 0;
+  width: 700px;
   /*border: 1px solid black;*/
 }
 .right_wrapper h2{
-  font-size: 1.25em
+  font-size: 1.25em;
+  color: #679898;
 }
 
 .sharedLinks{
+  color: #679898;
   margin: .25em 0;
   display: inline-block;
   width: 500px;
@@ -289,6 +285,7 @@ img{
   margin: 1em;
 }
 .savedLinks{
+  color: #679898;
   position: relative;
 }
 .linkList{
