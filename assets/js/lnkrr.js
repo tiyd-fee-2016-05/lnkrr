@@ -42,7 +42,7 @@ $(function(){
                                   '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                                   '<li id="location">' + json.location + '</li>',
                                   '<li id="joined_date">' + json.joined_date + '</li>',
-                                  '<li id="saved_links">' + json.saved_links + '</li>'
+                                  '<li id="saved_links">' + json.saved_links.length + '</li>'
                                 );
 
       });
@@ -105,6 +105,7 @@ $(function(){
 
   $('.submit').click(function(e) {
     e.preventDefault();
+
     console.log('forceChoke');
     console.log(searchUser);
     // $(".userShare").addClass("showing");
@@ -146,9 +147,9 @@ $(function(){
 
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
-        success: function(newLink){
-          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
-        }
+        // success: function(newLink){
+        //   $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+        // }
 
         //error: console.log("you done messed up");
       });
@@ -194,7 +195,7 @@ $(function(){
                               '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                               '<li id="location">' + json.location + '</li>',
                               '<li id="joined_date">' + json.joined_date + '</li>',
-                              '<li id="saved_links">' + json.saved_links + '</li>'
+                              '<li id="saved_links">' + json.saved_links.length + '</li>'
                             );
 
   });
