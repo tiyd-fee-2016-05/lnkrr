@@ -40,9 +40,9 @@ $(function(){
         "title": $('input[name="linkTitle"]').val(),
         "url": $('input[name="linkUrl"]').val(),
         "description": $('input[name="linkDescription"]').val()
-    };
-    var linkJson = JSON.stringify(link)
-    console.log(link);
+    };                                          //http://stackoverflow.com/questions/10559660/how-can-i-build-a-json-string-in-javascript-jquery
+    var linkJson = JSON.stringify(link)         //learned this little diddy from stackoverflow
+    console.log(link);                          //having parse issues from backend and it fixed it. I am pleased.
     $.ajax({
       type: 'POST',
       dataType: 'json',
