@@ -34,6 +34,8 @@ img{
 
 }
 .info{
+  position: absolute;
+  margin: 7em 0em 0em 1.5em;
   box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
   border: 2px solid #d0dfdf;
   vertical-align: super;
@@ -52,30 +54,29 @@ img{
   margin-bottom: 10px;
 }
 .infoBody{
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1em auto;
   position: relative;
-  width: 25%;
+  width: 30%;
   text-align: left;
-  color: #679898;
+  color: #1f1f1f;
   opacity: .5;
-  /*color: red;*/
-  font-size: 16px;
-  line-height: .75;
+  font-size: 1em;
+  line-height: 1;
 }
 .bigInfo{
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  position: relative;
-  /*width: 25%;*/
-  text-align: left;
-  color: #679898;
-  opacity: .85;
-  /*color: red;*/
-  font-size: 20px;
-  line-height: .75;
-
+  margin: 2em;
+  vertical-align: -0.5em;
+  font-size: 0.9em;
+  font-weight: 700;
 }
+.tinyInfo{
+  opacity: .7;
+  font-size: 0.8em;
+}
+.bigInfo2{
+  font-size: .9em;
+}
+
 .usernameLogin{
   padding: 0.25em;
   box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
@@ -102,7 +103,6 @@ img{
 /***********MAIN WRAPPER***********/
 .mainWrapper{
   opacity: 0;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -110,7 +110,7 @@ img{
 
 .navBar {
   opacity: 0;
-  margin: 1em 4em 0em 0em;
+  margin: 1em 3em 0em 0em;
   display: block;
 }
 .saveModal {
@@ -214,7 +214,6 @@ img{
 
 /*user profile*/
 .profile_wrapper{
-  margin: .25em 0;
   display: inline-block;
   width: 300px;
   height: 500px;
@@ -257,7 +256,7 @@ img{
 
 .right_wrapper{
   display: inline-block;
-  margin: 0;
+  width: 700px;
   /*border: 1px solid black;*/
 }
 .right_wrapper h2{
