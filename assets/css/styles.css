@@ -101,15 +101,21 @@ img{
 
 /***********MAIN WRAPPER***********/
 .mainWrapper{
+<<<<<<< HEAD
   /*opacity: 0;*/
   margin: 0 auto;
   position: relative;
+=======
+  opacity: 0;
+  display: flex;
+  margin: 1em;
+>>>>>>> master
 }
 
 /***********TOP NAV BAR***********/
 
 .navBar {
-  /*opacity: 0;*/
+  opacity: 0;
   margin: 1em 4em 0em 0em;
   display: block;
 }
