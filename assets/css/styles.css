@@ -91,7 +91,8 @@ img{
 
 .loginButton {
   box-shadow: 0.15em 0.15em 0.15em 0.05em rgba(0, 0, 0, 0.5);
-  border: 2px solid #d0dfdf;  background-color: #679898;
+  border: 2px solid #d0dfdf;
+  background-color: #679898;
   display: inline-block;
   font-size: 10px;
   border-radius: 5px;
@@ -101,8 +102,8 @@ img{
 /***********MAIN WRAPPER***********/
 .mainWrapper{
   /*opacity: 0;*/
-  display: flex;
-  margin: 1em;
+  margin: 0 auto;
+  position: relative;
 }
 
 /***********TOP NAV BAR***********/
@@ -219,10 +220,12 @@ img{
   height: 500px;
   background-color: #d0dfdf;
   border-radius: 5px;
+  vertical-align: top;
 }
 .profile_wrapper h2{
   font-size: 1.5em;
   color: white;
+  vertical-align: top;
 }
 
 
@@ -269,11 +272,42 @@ img{
   /*border: 1px solid black;*/
   border-radius: 5px;
 }
-.savedLinks{
+.savedLinks_wrapper{
   margin: .25em 0;
   display: inline-block;
   width: 500px;
   height: 250px;
   /*border: 1px solid black;*/
   border-radius: 5px;
+}
+
+
+
+/***********************SAVED LINKS************************/
+.addedLinks_container{
+  position: relative;
+  margin: 1em;
+}
+.savedLinks{
+  position: relative;
+}
+.linkList{
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  position: relative;
+  background-color: #d0dfdf;
+  display: inline-block;
+}
+.xbutton{
+  background-color: grey;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
