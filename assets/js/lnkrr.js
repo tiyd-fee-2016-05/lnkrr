@@ -20,6 +20,79 @@ $(function(){
     $(".mainWrapper").css("opacity", "1");
     console.log(userName);
     console.log(password);
+
+      //get request to pull profile data
+      $.ajax({
+      dataType: 'json',
+      //url: "http://8b3734ab.ngrok.io/skydaddy",
+      url: 'http://lnkrr.herokuapp.com/' + userName,
+      method: 'GET',
+      beforeSend: function (xhr) {
+        var cred = ("skydaddy:pass");
+        //var base64Credentials = btoa("skydaddy" + ":" + "pass");
+        xhr.setRequestHeader("Authorization", "skydaddy:lightsaber");
+        console.log(cred);
+
+        }
+      }).done(function (json) {
+        console.log(json);
+
+        $(".userProfile").append('<li id="avatar">' + '<img src="' + json.avatar + '" />'+ '</li>',
+                                  '<li id="username">' + json.username + '</li>',
+                                  '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
+                                  '<li id="location">' + json.location + '</li>',
+                                  '<li id="joined_date">' + json.joined_date + '</li>',
+                                  '<li id="saved_links">' + json.saved_links + '</li>'
+                                );
+
+      });
+
+      //end of request to pull profile data
+
+      //request to get user links
+      $.ajax({
+        dataType: 'json',
+        url: 'http://lnkrr.herokuapp.com/' + userName + '/links',
+        method: 'GET',
+        beforeSend: function (xhr) {
+          var cred = ("skydaddy:pass");
+          //var base64Credentials = btoa("skydaddy" + ":" + "pass");
+          xhr.setRequestHeader("Authorization", "skydaddy:lightsaber");
+          console.log(cred);
+        }
+      }).done(function(json) {
+        console.log(json);
+        for (var l = 0; l < json.length; l++){
+          $(".savedLinks").append('<li class="linkList">' + json[l].title + '</li>',
+                                  '<button class="' + json[l].id + '">' + "X" + '</button>' );
+        }
+      });
+      //end of request to pull user links
+
+      //request to pull shared links
+      $.ajax({
+        dataType: 'json',
+        url: 'http://lnkrr.herokuapp.com/' + userName + '/recommended',
+        method: 'GET',
+        beforeSend: function (xhr) {
+          var cred = ("skydaddy:pass");
+          //var base64Credentials = btoa("skydaddy" + ":" + "pass");
+          xhr.setRequestHeader("Authorization", "skydaddy:lightsaber");
+          console.log(cred);
+        }
+      }).done(function(json) {
+        console.log(json);
+        for (var l = 0; l < json.length; l++){
+          $(".sharedLinks").append('<li class="linkList">' + json[l].title + '</li>',
+                                  '<button class="' + json[l].id + '">' + "X" + '</button>' );
+        }
+      });
+      // end of request to pull shared links
+
+
+
+
+
   });
 
   // modal functions
@@ -43,21 +116,44 @@ $(function(){
     };
     var linkJson = JSON.stringify(link);
     console.log(link);
-    $.ajax({
-      type: 'POST',
-      dataType: 'json',
-      //url: "http://66990ec5.ngrok.io/skydaddy/links",
-      url: 'http://lnkrr.herokuapp.com/skydaddy/links',
-      data: linkJson,
 
-      headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
+    if ($('input[name="userShare"]').val() === "") {
+    //post to username
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        //url: "http://66990ec5.ngrok.io/skydaddy/links",
+        url: 'http://lnkrr.herokuapp.com/' + userName + '/links',
+        data: linkJson,
 
-      success: function(newLink){
-        $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
-      }
+        headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
-      //error: console.log("you done messed up");
-    });
+        success: function(newLink){
+          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+        }
+
+        //error: console.log("you done messed up");
+      });
+    } // end of post to username
+
+    else {
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        //url: "http://66990ec5.ngrok.io/skydaddy/links",
+        url: 'http://lnkrr.herokuapp.com/' + $('input[name="userShare"]').val() + '/recommended',
+        data: linkJson,
+
+        headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
+
+        success: function(newLink){
+          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+        }
+
+        //error: console.log("you done messed up");
+      });
+    }
+
     console.log(linkJson);
   });
   $(".post").click(function(e){
@@ -73,10 +169,11 @@ $(function(){
     console.log(searchUser);
 
 //on submit, clears the current page and fills it with an empty string
-    // $('.erase').html('');
+    $('.erase').html('');
 
   // searchUser = $('input[name="searchUser"]').val();
 
+  //get request to pull profile data
   $.ajax({
   dataType: 'json',
   //url: "http://8b3734ab.ngrok.io/skydaddy",
@@ -102,6 +199,9 @@ $(function(){
 
   });
 
+  //end of request to pull profile data
+
+  //request to get user links
   $.ajax({
     dataType: 'json',
     url: 'http://lnkrr.herokuapp.com/' + searchUser + '/links',
@@ -119,6 +219,27 @@ $(function(){
                               '<button class="' + json[l].id + '">' + "X" + '</button>' );
     }
   });
+  //end of request to pull user links
+
+  //request to pull shared links
+  $.ajax({
+    dataType: 'json',
+    url: 'http://lnkrr.herokuapp.com/' + searchUser + '/recommended',
+    method: 'GET',
+    beforeSend: function (xhr) {
+      var cred = ("skydaddy:pass");
+      //var base64Credentials = btoa("skydaddy" + ":" + "pass");
+      xhr.setRequestHeader("Authorization", "skydaddy:lightsaber");
+      console.log(cred);
+    }
+  }).done(function(json) {
+    console.log(json);
+    for (var l = 0; l < json.length; l++){
+      $(".sharedLinks").append('<li class="linkList">' + json[l].title + '</li>',
+                              '<button class="' + json[l].id + '">' + "X" + '</button>' );
+    }
+  });
+  // end of request to pull shared links
 
 });
 
