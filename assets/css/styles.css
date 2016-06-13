@@ -17,6 +17,14 @@ body{
   font-family: 'Comfortaa', sans-serif;
 }
 
+.backgroundlogo{
+  margin: 0 15em;
+}
+.backgroundlogo img{
+  width: 600px;
+  opacity: 0.1;
+}
+
 /********Log In******/
 .loginForm{
   margin-left: 1em;
