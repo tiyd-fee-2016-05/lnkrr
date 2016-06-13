@@ -166,12 +166,12 @@ $(function(){
 
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
-        success: function(newLink){
-          $(".savedLinks").append('<li class="linkList">' + '<h3>' + newLink.title + '</h3>' +
-                                  '<button class="xbutton"> x </button>' +
-                                  '<p>' + newLink.description + '</p>' +
-                                  '<span>' + newLink.url + '</span>' + '<li>');
-        }
+        // success: function(newLink){
+        //   $(".savedLinks").append('<li class="linkList">' + '<h3>' + newLink.title + '</h3>' +
+        //                           '<button class="xbutton"> x </button>' +
+        //                           '<p>' + newLink.description + '</p>' +
+        //                           '<span>' + newLink.url + '</span>' + '<li>');
+        // }
 
         //error: console.log("you done messed up");
       });
