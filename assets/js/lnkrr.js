@@ -172,7 +172,12 @@ $(function(){
 
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
-        // success: function(newLink){
+        success: alert("successfully lnkrr-rd with" + " " + $('input[name="userShare"]').val())
+
+
+
+
+        // function(newLink){
         //   $(".savedLinks").append('<li class="linkList">' + '<h3>' + newLink.title + '</h3>' +
         //                           '<button class="xbutton"> x </button>' +
         //                           '<p>' + newLink.description + '</p>' +
