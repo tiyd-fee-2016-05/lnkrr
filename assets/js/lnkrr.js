@@ -134,8 +134,8 @@ $(function(){
         "url": $('input[name="linkUrl"]').val(),
         "description": $('input[name="linkDescription"]').val()
     };
-    var linkJson = JSON.stringify(link);
-    console.log(link);
+    var linkJson = JSON.stringify(link);                          //inspired by stackoverflow here http://stackoverflow.com/questions/10559660/how-can-i-build-a-json-string-in-javascript-jquery
+    console.log(link);                                            //it works and it pleases me, solves the issue of the backend not understanding the way the data was sent to them.
 
     if ($('input[name="userShare"]').val() === "") {
     //post to username
