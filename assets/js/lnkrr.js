@@ -149,7 +149,7 @@ $(function(){
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
         success: function(newLink){
-          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="xbutton"> x </button>');
         }
 
         //error: console.log("you done messed up");
@@ -168,7 +168,7 @@ $(function(){
 
         success: function(newLink){
           $(".savedLinks").append('<li class="linkList">' + '<h3>' + newLink.title + '</h3>' +
-                                  '<button class="delete"> x </button>' +
+                                  '<button class="xbutton"> x </button>' +
                                   '<p>' + newLink.description + '</p>' +
                                   '<span>' + newLink.url + '</span>' + '<li>');
         }
