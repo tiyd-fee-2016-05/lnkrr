@@ -18,8 +18,7 @@ body{
 }
 
 .backgroundlogo{
-  margin: 0 15em;
-  position: absolute;
+  margin: 0 auto;
 }
 .backgroundlogo img{
   width: 600px;
