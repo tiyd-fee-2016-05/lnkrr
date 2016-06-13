@@ -17,11 +17,12 @@ body{
   font-family: 'Comfortaa', sans-serif;
 }
 
-img{
-  max-width: 10em;
+/********Log In******/
+.loginForm{
+  margin-left: 1em;
+  margin-top: 2em;
 }
 
-/********Log In******/
 .login{
   display: block;
 }
@@ -33,6 +34,9 @@ img{
   color: #679898;
 
 
+}
+.info:focus {
+  outline: none;
 }
 .info{
   position: absolute;
@@ -67,7 +71,7 @@ img{
   margin: 1em auto;
 }
 .infoBody{
-  margin: .5em auto;
+  margin: 1em auto;
   position: relative;
   width: 30%;
   text-align: left;
@@ -120,7 +124,7 @@ img{
 
 /***********MAIN WRAPPER***********/
 .mainWrapper{
-  margin-top: 2.5em;
+  margin: 2.5em 0 1em 1em;
   opacity: 0;
   position: relative;
 }
@@ -163,11 +167,17 @@ img{
 }
 
 .lnkrr{
-  padding: 0 25%;
+  padding: 0 30%;
   display: inline-block;
   font-size: 40px;
   font-weight: 700;
   color: #679898;
+}
+
+@media screen and (min-width:550px) and (max-width: 1000px) {
+  .lnkrr{
+    padding: 0 20%;
+  }
 }
 
 .post {
@@ -259,12 +269,14 @@ img{
 }
 
 #avatar{
-  padding: 1em;
-  margin: 1em;
+  padding: .5em;
+  margin: 1em 2em;
   text-align: center;
 }
 
 #avatar img{
+  border: 2px solid #f7f7f7;
+  border-radius: 10px;
   width: 175px;
   height: 175px;
 }
@@ -272,7 +284,7 @@ img{
 #initials{
   color: #d0dfdf;
   margin: .1em;
-  padding: .1em;
+  padding: .5em 0;
   width: 175px;
   height: 175px;
   font-size: 5em;
@@ -281,30 +293,30 @@ img{
 }
 
 #username{
-  padding: 10px 0 0 10px;
+  padding: 0% 0% 0% 5%;
   font-size: 2em;
 }
 
 #fullname{
-  padding: 10px;
+  padding: 5% 0% 10% 5%;
   font-size: 1.25em;
+  font-weight: 300;
   border-bottom: 5px solid #f7f7f7;
 }
 
 #location{
   font-size: 1em;
-  padding: 10px;
+  padding: 5% 0% 0% 8%;
 }
 #joined_date{
   font-size: 1em;
-  padding: 10px;
+  padding: 5% 0% 0% 5%;
 }
 #saved_links{
   font-size: 1em;
-  padding: 10px;
+  padding: 5% 0% 5% 7%;
 }
 .userProfile i{
-  margin-left: 5px;
   font-size: 2em;
 }
 .iconPad {
@@ -320,19 +332,24 @@ img{
   /*border: 1px solid black;*/
 }
 .right_wrapper h2{
+  margin: 1em;
   font-size: 1.25em;
   color: #679898;
+  padding: 0.25em;
+  border: 1px dotted #d0dfdf;
+  border-radius: 25%;
 }
 
 .sharedLinks{
   position: relative;
   color: #679898;
   margin: .25em 0;
-  display: inline-block;
+  display: flex;
   width: 100%;
   /*border: 1px solid black;*/
   border-radius: 5px;
 }
+
 .savedLinks_wrapper{
   position: relative;
   margin: .25em 0;
@@ -350,9 +367,11 @@ img{
   margin: 1em;
 }
 .savedLinks{
+  display: flex;
   position: relative;
 }
 .linkList{
+  /*border-bottom: 1px solid;*/
   color: #679898;
   margin: 10px;
   width: 150px;
@@ -396,4 +415,19 @@ img{
   position: absolute;
   top: -5px;
   right: -5px;
+}
+
+.linkList h3{
+  border-bottom: 2px solid;
+  padding: .3em 0 0.3em 0;
+  font-size: 1.5em;
+}
+.linkList p{
+  margin: 1em 0;
+  font-size: 1em;
+}
+.linkList span{
+  margin-bottom: 0;
+  font-size: .5em;
+  opacity: .5;
 }

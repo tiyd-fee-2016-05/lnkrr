@@ -44,7 +44,7 @@ $(function(){
                                   '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                                   '<li id="location">' + '<i class="fa fa-map-marker" aria-hidden="true"></i>' + '<span class="iconPad">' + json.location + '</span>' + '</li>',
                                   '<li id="joined_date">' + '<i class="fa fa-calendar" aria-hidden="true"></i>' + '<span class="iconPad">' + json.joined_date + '</span>' + '</li>',
-                                  '<li id="saved_links">' + '<i class="fa fa-bookmark-o" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
+                                  '<li id="saved_links">' + '<i class="fa fa-bookmark" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
                                 );
                               }
         else {
@@ -53,7 +53,7 @@ $(function(){
                                   '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                                   '<li id="location">' + '<i class="fa fa-map-marker" aria-hidden="true"></i>' + '<span class="iconPad">' + json.location + '</span>' + '</li>',
                                   '<li id="joined_date">' + '<i class="fa fa-calendar" aria-hidden="true"></i>' + '<span class="iconPad">' + json.joined_date + '</span>' + '</li>',
-                                  '<li id="saved_links">' + '<i class="fa fa-bookmark-o" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
+                                  '<li id="saved_links">' + '<i class="fa fa-bookmark" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
                                 );
                               }
 
@@ -74,9 +74,13 @@ $(function(){
         }
       }).done(function(json) {
         console.log(json);
-        for (var l = 0; l < 5; l++){
-          $(".savedLinks").append('<li class="linkList">' + json[l].title +
-                                  '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+        for (var l = 0; l < json.length; l++){
+          $(".savedLinks").append('<li class="linkList">' +
+                                  '<h3>' + json[l].title + '</h3>' +
+                                  '<button class="xbutton" id="' +
+                                    json[l].id + '">' + "X" + '</button>' +
+                                  '<p>' + json[l].description + '</p>' +
+                                  '<span>' + json[l].url + '</span>' + '<li>');
         }
       });
       //end of request to pull user links
@@ -94,9 +98,13 @@ $(function(){
         }
       }).done(function(json) {
         console.log(json);
-        for (var l = 0; l < 5; l++){
-          $(".sharedLinks").append('<li class="linkList">' + json[l].title +
-                                  '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+        for (var l = 0; l < json.length; l++){
+          $(".sharedLinks").append('<li class="linkList">' +
+                                  '<h3>' + json[l].title + '</h3>' +
+                                  '<button class="xbutton" id="' +
+                                    json[l].id + '">' + "X" + '</button>' +
+                                  '<p>' + json[l].description + '</p>' +
+                                  '<span>' + json[l].url + '</span>' + '<li>');
         }
       });
       // end of request to pull shared links
@@ -115,8 +123,8 @@ $(function(){
     $(".userShare").css("opacity", "1");
 });
 
-  $('.submit').click(function(e) {
-    e.preventDefault();
+  $('.submit').click(function() {
+    // e.preventDefault();
     console.log('forceChoke');
     console.log(searchUser);
     // $(".userShare").addClass("showing");
@@ -141,7 +149,7 @@ $(function(){
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
         success: function(newLink){
-          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="xbutton"> x </button>');
         }
 
         //error: console.log("you done messed up");
@@ -159,7 +167,10 @@ $(function(){
         headers: {"Authorization": ("skydaddy" + ":" + "lightsaber")},
 
         success: function(newLink){
-          $(".savedLinks").append('<li class="linkList">' +  newLink.title + '<li>' + '<button class="delete"> x </button>');
+          $(".savedLinks").append('<li class="linkList">' + '<h3>' + newLink.title + '</h3>' +
+                                  '<button class="xbutton"> x </button>' +
+                                  '<p>' + newLink.description + '</p>' +
+                                  '<span>' + newLink.url + '</span>' + '<li>');
         }
 
         //error: console.log("you done messed up");
@@ -201,12 +212,12 @@ $(function(){
   }).done(function (json) {
     console.log(json);
     if (json.avatar === null){
-      $(".userProfile").append('<li id="avatar">' + '<span id="initials">' + json.first_name[0] + json.last_name[0] + '</span>' + '</li>',
+      $(".userProfile").append('<li id="avatar">' + '<div id="initials">' + json.first_name[0] + json.last_name[0] + '</div>' + '</li>',
                               '<li id="username">' + json.username + '</li>',
                               '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                               '<li id="location">' + '<i class="fa fa-map-marker" aria-hidden="true"></i>' + '<span class="iconPad">' + json.location + '</span>' + '</li>',
                               '<li id="joined_date">' + '<i class="fa fa-calendar" aria-hidden="true"></i>' + '<span class="iconPad">' + json.joined_date + '</span>' + '</li>',
-                              '<li id="saved_links">' + '<i class="fa fa-bookmark-o" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
+                              '<li id="saved_links">' + '<i class="fa fa-bookmark" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
                             );
                           }
     else {
@@ -215,7 +226,7 @@ $(function(){
                               '<li id="fullname">' + json.first_name + ' ' + json.last_name + '</li>',
                               '<li id="location">' + '<i class="fa fa-map-marker" aria-hidden="true"></i>' + '<span class="iconPad">' + json.location + '</span>' + '</li>',
                               '<li id="joined_date">' + '<i class="fa fa-calendar" aria-hidden="true"></i>' + '<span class="iconPad">' + json.joined_date + '</span>' + '</li>',
-                              '<li id="saved_links">' + '<i class="fa fa-bookmark-o" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
+                              '<li id="saved_links">' + '<i class="fa fa-bookmark" aria-hidden="true"></i>' + '<span class="iconPad">' + json.saved_links.length + '</span>' + '</li>'
                             );
                           }
 
@@ -237,9 +248,13 @@ $(function(){
     }
   }).done(function(json) {
     console.log(json);
-    for (var l = 0; l < 5; l++){
-      $(".savedLinks").append('<li class="linkList">' + json[l].title +
-                              '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+    for (var l = 0; l < json.length; l++){
+      $(".savedLinks").append('<li class="linkList">' +
+                              '<h3>' + json[l].title + '</h3>' +
+                              '<button class="xbutton" id="' +
+                                json[l].id + '">' + "X" + '</button>' +
+                              '<p>' + json[l].description + '</p>' +
+                              '<span>' + json[l].url + '</span>' + '<li>');
     }
   });
   //end of request to pull user links
@@ -257,9 +272,13 @@ $(function(){
     }
   }).done(function(json) {
     console.log(json);
-    for (var l = 0; l < 5; l++){
-      $(".sharedLinks").append('<li class="linkList">' + json[l].title +
-                              '<button class="xbutton" id="' + json[l].id + '">' + "X" + '</button>' + '</li>');
+    for (var l = 0; json.length; l++){
+      $(".sharedLinks").append('<li class="linkList">' +
+                              '<h3>' + json[l].title + '</h3>' +
+                              '<button class="xbutton" id="' +
+                                json[l].id + '">' + "X" + '</button>' +
+                              '<p>' + json[l].description + '</p>' +
+                              '<span>' + json[l].url + '</span>' + '<li>');
     }
   });
   // end of request to pull shared links
